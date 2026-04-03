@@ -78,7 +78,7 @@ public class Assignment_EnemyDetector : MonoBehaviour
         var halfFov = Mathf.Cos(detectionFOV * 0.5f * Mathf.Deg2Rad);
 
 
-        return value > halfFov;
+        return value >= halfFov;
     }
 
     private void OnDrawGizmos()
