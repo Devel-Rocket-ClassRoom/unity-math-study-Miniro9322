@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assignment_DirectionAlert
   alertRange: 15
-  uiInfoText: {fileID: 0}
+  uiInfoText: {fileID: 1738976620}
   nearbyEnemies: []
 --- !u!114 &2082038886
 MonoBehaviour:
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assignment_EnemyDetector
   detectionFOV: 120
   detectionRange: 10
-  uiInfoText: {fileID: 0}
+  uiInfoText: {fileID: 1738976620}
   detectedCount: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
