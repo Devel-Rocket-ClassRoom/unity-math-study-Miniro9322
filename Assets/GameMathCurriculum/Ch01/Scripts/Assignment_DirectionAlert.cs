@@ -76,13 +76,15 @@ public class Assignment_DirectionAlert : MonoBehaviour
     private Direction GetDirection(Transform enemy)
     {
         var toEnemy = (enemy.position - transform.position);
-        if(toEnemy.magnitude > alertRange || toEnemy == Vector3.zero)
+        toEnemy.y = 0f;
+
+        if (toEnemy == Vector3.zero)
         {
             return Direction.None;
         }
 
+        var crossValue = Vector3.Cross(transform.forward, toEnemy);
         var dotValue = Vector3.Dot(transform.forward, toEnemy.normalized);
-
         var fov = Mathf.Cos(45f * Mathf.Deg2Rad);
 
         if (dotValue > fov)
@@ -93,10 +95,6 @@ public class Assignment_DirectionAlert : MonoBehaviour
         {
             return Direction.Back;
         }
-
-        toEnemy.y = 0f;
-
-        var crossValue = Vector3.Cross(transform.forward, toEnemy);
 
         if (crossValue.y > 0f)
         {
