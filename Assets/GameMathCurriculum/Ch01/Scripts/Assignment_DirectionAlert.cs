@@ -76,7 +76,7 @@ public class Assignment_DirectionAlert : MonoBehaviour
     private Direction GetDirection(Transform enemy)
     {
         var toEnemy = (enemy.position - transform.position);
-        if(toEnemy.magnitude > alertRange)
+        if(toEnemy.magnitude > alertRange || toEnemy == Vector3.zero)
         {
             return Direction.None;
         }
