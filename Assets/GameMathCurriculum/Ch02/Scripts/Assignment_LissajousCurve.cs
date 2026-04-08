@@ -75,6 +75,8 @@ public class Assignment_LissajousCurve : MonoBehaviour
         var x = amplitudeX * Mathf.Sin(2f * Mathf.PI * frequencyX * time + phaseX * Mathf.Deg2Rad);
         var z = amplitudeZ * Mathf.Sin(2f * Mathf.PI * frequencyZ * time + phaseZ * Mathf.Deg2Rad);
 
+        //initialPosition += new Vector3(x, 0f, z);
+
         var newPosition = initialPosition;
         newPosition.x += x;
         newPosition.z += z;
