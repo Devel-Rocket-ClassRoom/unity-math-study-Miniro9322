@@ -34,15 +34,13 @@ public class Assignment_SplineConveyor : MonoBehaviour
 
     private void Update()
     {
+        globalT += Time.deltaTime / cycleDuration;
+        currentSpeedMultiplier = speedCurve.Evaluate(globalT);
+
         // TODO
         for (int i = 0; i < boxes.Length; i++)
         {
-            globalT += Time.deltaTime/cycleDuration;
-            globalT = Mathf.Repeat(globalT, 1f);
-
-            currentSpeedMultiplier = speedCurve.Evaluate(globalT);
-
-            boxes[i].position = EvaluateSpline(waypoints, globalT + i/cycleDuration);
+            boxes[i].position = EvaluateSpline(waypoints, Mathf.Repeat(globalT * currentSpeedMultiplier + i / (float)boxes.Length, 1f));
         }
 
         UpdateUI();
