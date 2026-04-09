@@ -43,6 +43,7 @@ public class Assignment_SplineConveyor : MonoBehaviour
         currentSpeedMultiplier = speedCurve.Evaluate(elapsedTime);
 
         globalT += Time.deltaTime * currentSpeedMultiplier;
+        globalT = Mathf.Repeat(globalT, 1f);
 
         for (int i = 0; i < boxes.Length; i++)
         {
