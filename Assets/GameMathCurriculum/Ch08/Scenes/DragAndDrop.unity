@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 350638572}
   - component: {fileID: 350638571}
   - component: {fileID: 350638570}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: zone3
   m_TagString: DropZone
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 374069556}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 191.06, y: 15.8, z: 198.01}
+  m_LocalPosition: {x: 191.06, y: 15.08, z: 198.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 455411650}
   - component: {fileID: 455411649}
   - component: {fileID: 455411648}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: zone1
   m_TagString: DropZone
   m_Icon: {fileID: 0}
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 1681736428}
   - component: {fileID: 1681736427}
   - component: {fileID: 1681736426}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: zone2
   m_TagString: DropZone
   m_Icon: {fileID: 0}
@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 1824086559}
   - component: {fileID: 1824086558}
   - component: {fileID: 1824086557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Terrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
