@@ -131,8 +131,8 @@ GameObject:
   - component: {fileID: 350638572}
   - component: {fileID: 350638571}
   - component: {fileID: 350638570}
-  m_Layer: 0
-  m_Name: Cylinder (2)
+  m_Layer: 6
+  m_Name: zone3
   m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,8 +245,8 @@ GameObject:
   - component: {fileID: 374069559}
   - component: {fileID: 374069558}
   - component: {fileID: 374069557}
-  m_Layer: 0
-  m_Name: w
+  m_Layer: 3
+  m_Name: box1
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,8 +357,8 @@ GameObject:
   - component: {fileID: 418376397}
   - component: {fileID: 418376396}
   - component: {fileID: 418376395}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 3
+  m_Name: box2
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,8 +469,8 @@ GameObject:
   - component: {fileID: 455411650}
   - component: {fileID: 455411649}
   - component: {fileID: 455411648}
-  m_Layer: 0
-  m_Name: Cylinder
+  m_Layer: 6
+  m_Name: zone1
   m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -583,8 +583,8 @@ GameObject:
   - component: {fileID: 1050709489}
   - component: {fileID: 1050709488}
   - component: {fileID: 1050709487}
-  m_Layer: 0
-  m_Name: Cube (1)
+  m_Layer: 3
+  m_Name: box3
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -972,8 +972,8 @@ GameObject:
   - component: {fileID: 1681736428}
   - component: {fileID: 1681736427}
   - component: {fileID: 1681736426}
-  m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Layer: 6
+  m_Name: zone2
   m_TagString: DropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1087,7 +1087,7 @@ GameObject:
   - component: {fileID: 1824086557}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
