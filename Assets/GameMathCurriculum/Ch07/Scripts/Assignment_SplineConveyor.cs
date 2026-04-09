@@ -32,15 +32,21 @@ public class Assignment_SplineConveyor : MonoBehaviour
     [SerializeField] private float globalT;
     [SerializeField] private float currentSpeedMultiplier;
 
+    private float elapsedTime = 0f;
+    private float time = 0f;
+
     private void Update()
     {
-        globalT += Time.deltaTime / cycleDuration;
-        currentSpeedMultiplier = speedCurve.Evaluate(globalT);
-
         // TODO
+        time += Time.deltaTime;
+        elapsedTime = Mathf.Repeat(time / cycleDuration, speedCurve.keys[speedCurve.keys.Length - 1].time);
+        currentSpeedMultiplier = speedCurve.Evaluate(elapsedTime);
+
+        globalT += Time.deltaTime * currentSpeedMultiplier;
+
         for (int i = 0; i < boxes.Length; i++)
         {
-            boxes[i].position = EvaluateSpline(waypoints, Mathf.Repeat(globalT * currentSpeedMultiplier + i / (float)boxes.Length, 1f));
+            boxes[i].position = EvaluateSpline(waypoints, Mathf.Repeat(globalT + i * 0.1f, 1f));
         }
 
         UpdateUI();

@@ -11,13 +11,14 @@ public class Sphere : MonoBehaviour
     private Material material;
     private Renderer render;
     private float elapsedTime;
-
+    private TrailRenderer trailRenderer;
     private void Awake()
     {
         elapsedTime = 0f;
         render = GetComponent<Renderer>();
         render.material = material;
         startPos = transform.position;
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -39,6 +40,7 @@ public class Sphere : MonoBehaviour
         endPos = end;
         speed = ranSpeed;
         render.material.color = ranColor;
+        trailRenderer.material.color = ranColor;
     }
 
     private Vector3 CubicBezier(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)

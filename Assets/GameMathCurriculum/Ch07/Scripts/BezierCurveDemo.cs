@@ -97,7 +97,8 @@ public class BezierCurveDemo : MonoBehaviour
         {
             BezierType.Linear => LinearBezier(p0, p3, t),
             BezierType.Quadratic => QuadraticBezier(p0, p1, p2, t),
-            BezierType.Cubic => CubicBezier(p0, p1, p2, p3, t)
+            BezierType.Cubic => CubicBezier(p0, p1, p2, p3, t),
+            _ => throw new System.NotImplementedException()
         };
     }
 
