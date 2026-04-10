@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         move = new Vector3(Input.GetAxis(horizontal), 0f, Input.GetAxis(vertical)).normalized;
-        transform.position += move * speed * Time.deltaTime;
+        transform.position += speed * Time.deltaTime * move;
 
         if (Input.GetKey(KeyCode.Q))
         {

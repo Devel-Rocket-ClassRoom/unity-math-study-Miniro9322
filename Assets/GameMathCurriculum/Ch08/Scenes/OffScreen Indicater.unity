@@ -580,6 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   speed: 8
+  rotateSpeed: 45
 --- !u!136 &615493328
 CapsuleCollider:
   m_ObjectHideFlags: 0

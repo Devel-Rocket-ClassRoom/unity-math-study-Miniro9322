@@ -10,9 +10,6 @@ public class DragAndDrop : MonoBehaviour
     Camera cam;
 
     private GameObject catched;
-
-    private Vector3 originalPos;
-    private bool returntoOrigin;
     private LayerMask usingLayer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,7 +17,6 @@ public class DragAndDrop : MonoBehaviour
     {
         cam = Camera.main;
         usingLayer = LayerMask.GetMask(box);
-        returntoOrigin = false;
         catched = null;
     }
 
@@ -33,6 +29,10 @@ public class DragAndDrop : MonoBehaviour
         {
             usingLayer = LayerMask.GetMask(ground);
         }
+        else
+        {
+            usingLayer = LayerMask.GetMask(box);
+        }
 
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, usingLayer) == false)
         {
@@ -44,7 +44,6 @@ public class DragAndDrop : MonoBehaviour
             if (hit.collider.CompareTag(canSelect))
             {
                 catched = hit.collider.gameObject;
-                originalPos = catched.transform.position;
             }
         }
 
@@ -55,35 +54,20 @@ public class DragAndDrop : MonoBehaviour
                 return;
             }
 
-            catched.transform.position = new Vector3(hit.point.x, Terrain.activeTerrain.SampleHeight(hit.point) + 0.5f, hit.point.z);
+            catched.transform.position = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && catched != null)
         {
             if (hit.collider.CompareTag(zone) == false)
             {
-                returntoOrigin = true;
+                catched.GetComponent<BoxControll>().ReturntoOrigin();
             }
             else
             {
-                catched.transform.position = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
-                catched = null;
+                catched.GetComponent<BoxControll>().UpdateOrigin(new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z));
             }
-            usingLayer = LayerMask.GetMask(box);
-        }
-
-        if(returntoOrigin == true && catched != null)
-        {
-            var temp = new Vector3(catched.transform.position.x, Terrain.activeTerrain.SampleHeight(catched.transform.position) + 0.5f, catched.transform.position.z);
-            catched.transform.position = Vector3.Lerp(temp, originalPos, 4f * Time.deltaTime);
-
-            if (catched.transform.position.x - originalPos.x < 0.01f && catched.transform.position.z - originalPos.z < 0.01f)
-            {
-                catched.transform.position = originalPos;
-                catched = null;
-                returntoOrigin = false;
-                Debug.Log(catched == null);
-            }
+            catched = null;
         }
     }
 }
