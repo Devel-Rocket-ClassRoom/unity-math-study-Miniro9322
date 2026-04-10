@@ -29,17 +29,22 @@ public class TargetInfo : MonoBehaviour
         {
             if (targetScreenPoses[i].x < 0f || targetScreenPoses[i].y < 0f || targetScreenPoses[i].x > Screen.width || targetScreenPoses[i].y > Screen.height)
             {
-                if (targetScreenPoses[i].z < 0)
+                if (targetScreenPoses[i].z < 0f)
                 {
                     targetScreenPoses[i].x = Screen.width - targetScreenPoses[i].x;
                     targetScreenPoses[i].y = Screen.height - targetScreenPoses[i].y;
-
                 }
-                targetScreenPoses[i].x = Mathf.Clamp(targetScreenPoses[i].x, 0f + images[i].GetComponent<RectTransform>().rect.width / 2f, Screen.width - images[i].GetComponent<RectTransform>().rect.width / 2f);
-                targetScreenPoses[i].y = Mathf.Clamp(targetScreenPoses[i].y, 0f + images[i].GetComponent<RectTransform>().rect.height / 2f, Screen.height - images[i].GetComponent<RectTransform>().rect.height / 2f);
-                
 
-                images[i].GetComponent<RectTransform>().position = targetScreenPoses[i];
+                Vector3 local = cam.transform.InverseTransformPoint(targets[i].position);
+                Vector2 dir = new Vector2(local.x, local.y).normalized;
+                Vector2 center = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+                float scale = Mathf.Min(center.x / Mathf.Abs(dir.x), center.y / Mathf.Abs(dir.y));
+                images[i].GetComponent<RectTransform>().position = center + dir * scale;
+
+                //targetScreenPoses[i].x = Mathf.Clamp(targetScreenPoses[i].x, 0f + images[i].GetComponent<RectTransform>().rect.width / 2f, Screen.width - images[i].GetComponent<RectTransform>().rect.width / 2f);
+                //targetScreenPoses[i].y = Mathf.Clamp(targetScreenPoses[i].y, 0f + images[i].GetComponent<RectTransform>().rect.height / 2f, Screen.height - images[i].GetComponent<RectTransform>().rect.height / 2f);
+
+                //images[i].GetComponent<RectTransform>().position = targetScreenPoses[i];
                 images[i].enabled = true;
             }
             else
